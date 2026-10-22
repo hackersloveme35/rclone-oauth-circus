@@ -30,15 +30,76 @@ h1,h2,h3{line-height:1.1;letter-spacing:-.06em}h1{font-size:clamp(3.4rem,7vw,7.3
 footer{background:#080614;padding:41px 5vw 28px;border-top:1px solid #bd99e844}.footer-inner{max-width:1160px;margin:auto;display:flex;justify-content:space-between;gap:35px;flex-wrap:wrap}.footer-inner p{font-size:.84rem;max-width:450px}.footlinks{display:flex;flex-direction:column;gap:12px;font-size:.78rem}.footlinks a{color:#c5b9ed}.footer-note{max-width:1160px;margin:30px auto 0;color:#958ca6;font-size:.76rem}
 .calm .bell,.calm .giant,.calm .ticker-text,.calm .led{animation:none!important}.calm .bell{opacity:.6}
 @media(max-width:850px){.hero{grid-template-columns:1fr;min-height:0;padding-top:68px}.certificate{justify-self:start;transform:none}.portrait{top:100px;width:100%;right:0;opacity:.26}.bells{top:170px}.cards{grid-template-columns:1fr}.hero h1{font-size:clamp(3.2rem,9vw,5.5rem)}}@media(max-width:560px){header{flex-wrap:wrap}nav{gap:16px}.hero{padding-top:52px}.hero h1{font-size:clamp(3.05rem,11vw,4.3rem)}.giant{font-size:4rem}.portrait-credit{top:890px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
+
+
+/* Deliberately calm opening act; the circus is earned by ringing one bell. */
+[hidden]{display:none!important}
+body:not(.revealed){background:#071523;color:#eff9ff}
+body:not(.revealed):before{background:radial-gradient(ellipse 65% 70% at 85% 35%,#16425f64,transparent 72%),radial-gradient(ellipse at 10% 95%,#1544505d,transparent 64%)}
+body:not(.revealed) header{background:#081a2bf2;border-bottom-color:#8fc9d52e}
+body:not(.revealed) .logo-icon{background:linear-gradient(135deg,#154459,#092c43);border-color:#88dce5;box-shadow:0 0 24px #43b9cf20}
+body:not(.revealed) nav a{color:#b8c9dd}
+body:not(.revealed) nav a[aria-current="page"]{color:#b5f6f5}
+body:not(.revealed) .portrait,body:not(.revealed) .bells,body:not(.revealed) .ticker{display:none}
+body:not(.revealed) footer{background:#071420;border-top-color:#31606c44}
+body:not(.revealed) .footer-inner p{color:#a4bbcb}
+body:not(.revealed) .footlinks a{color:#b5d7e6}
+.intro{position:relative;max-width:1280px;margin:auto;padding:60px max(5vw,22px) 80px;min-height:660px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(290px,.85fr);gap:clamp(24px,5vw,70px);align-items:center}
+.intro:before{content:"";position:absolute;right:2%;top:7%;width:min(490px,48vw);height:min(490px,48vw);background:radial-gradient(circle,#3e91ad22,transparent 68%);z-index:-1}
+.intro-tag{display:inline-flex;gap:8px;align-items:center;font-size:.71rem;text-transform:uppercase;letter-spacing:.17em;color:#a3e9ee;font-weight:800;background:#123443;border:1px solid #397386;border-radius:99px;padding:7px 13px}
+.intro h1{font-size:clamp(3rem,5.7vw,5.9rem);letter-spacing:-.064em;line-height:1.05;margin:28px 0 22px}
+.intro h1 span{background:linear-gradient(100deg,#9debeb,#a8c7ff);background-clip:text;color:transparent}
+.intro .intro-lead{font-size:1.1rem;max-width:565px;color:#bfd1e1;margin-bottom:21px}
+.intro-points{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0;color:#c9e5e8;font-size:.79rem;font-weight:700}
+.intro-points span{border:1px solid #49778a70;padding:8px 13px;border-radius:10px;background:#142d3e}
+.intro-caption{font-size:.8rem;color:#8caabd;margin-top:22px}
+.intro-dangle{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:470px;border:1px solid #6aaabc55;border-radius:30px;background:linear-gradient(160deg,#10324b77,#0b203463 54%,#09223855);box-shadow:0 32px 80px #0005,inset 0 1px #cbf5ff20;overflow:hidden;padding:35px 22px 30px;text-align:center}
+.intro-dangle:before{content:"";position:absolute;inset:21px;border:1px dashed #b6d8e026;border-radius:22px;pointer-events:none}
+.intro-dangle .hanger{height:101px;width:2px;background:linear-gradient(#b7dfed2b,#8ae9e9);margin:0 auto -1px;transform-origin:top center}
+.reveal-bell{appearance:none;display:grid;place-items:center;position:relative;z-index:1;width:190px;height:190px;border:1px solid #e9ca77a8;border-radius:50%;background:radial-gradient(circle at 31% 24%,#ffecc34a,#af7a261a 52%,#47371922 80%);box-shadow:inset 0 2px #fff5cc88,0 0 80px #ffe28b22,0 22px 70px #0004;cursor:pointer;transform-origin:center -101px;animation:intro-sway 3.3s ease-in-out infinite alternate;transition:box-shadow .25s,background .25s}
+.reveal-bell .bell-emoji{font-size:7rem;line-height:1;filter:drop-shadow(0 12px 15px #100f0966);pointer-events:none}
+.reveal-bell:hover{box-shadow:inset 0 2px #fff5ccaa,0 0 85px #ffc85277,0 26px 70px #0007}
+.reveal-bell:focus-visible{outline:3px solid #aaf5ff;outline-offset:8px}
+.intro-dangle h2{font-size:1.36rem;letter-spacing:-.035em;margin:33px 0 10px}
+.intro-dangle p{font-size:.92rem;color:#b4cdda;max-width:290px;margin:0}
+.intro-dangle .little-note{font-size:.73rem;color:#8aa9b8;margin-top:12px}
+.intro.is-ringing .reveal-bell{animation:big-ring .14s ease-in-out 6 alternate!important}
+@keyframes intro-sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+@keyframes big-ring{from{transform:rotate(-23deg)}to{transform:rotate(23deg)}}
+.revealed .intro{display:none}
+.revealed .portrait,.revealed .bells,.revealed .ticker{display:block}
+.revealed .ticker{display:flex}
+@media(max-width:850px){.intro{grid-template-columns:1fr;min-height:0;padding-top:58px;padding-bottom:65px}.intro-dangle{max-width:540px;width:100%;margin:auto;min-height:380px}.intro h1{font-size:clamp(3rem,9vw,5rem)}.intro-dangle .hanger{height:63px}.reveal-bell{width:160px;height:160px;transform-origin:center -63px}.reveal-bell .bell-emoji{font-size:5.7rem}}
+@media(prefers-reduced-motion:reduce){.reveal-bell,.intro.is-ringing .reveal-bell{animation:none!important}}
+
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
 <div class="portrait" role="presentation" aria-hidden="true"></div>
 <div class="bells" aria-hidden="true"><span class="bell b1">🔔</span><span class="bell b2">🔔</span><span class="bell b3">🔔</span><span class="bell b4">🔔</span><span class="bell b5">🔔</span></div>
-<header><a class="logo" href="./index.html"><span class="logo-icon">R✦</span><span>RCLONE<small>THE PERSONAL BACKUP DESK</small></span></a><nav aria-label="Navigation"><a href="./index.html" aria-current="page">The Circus</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></nav></header>
+<header><a class="logo" href="./index.html"><span class="logo-icon">R✦</span><span>RCLONE<small>THE PERSONAL BACKUP DESK</small></span></a><nav aria-label="Navigation"><a href="./index.html" aria-current="page">Overview</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a></nav></header>
 <div class="ticker" aria-hidden="true"><div class="ticker-text">🔔 ATTENTION GOOGLE AUTH PLATFORM &nbsp; • &nbsp; ONE HUMAN WANTS TO COPY A FOLDER &nbsp; • &nbsp; PLEASE REMAIN CALM &nbsp; • &nbsp; 47 SETTINGS LATER... &nbsp; • &nbsp; 🔔 ATTENTION GOOGLE AUTH PLATFORM &nbsp; • &nbsp; ONE HUMAN WANTS TO COPY A FOLDER &nbsp; • &nbsp; PLEASE REMAIN CALM &nbsp; • &nbsp; 47 SETTINGS LATER... &nbsp; • &nbsp;</div></div>
-<main id="main">
+
+<section class="intro" id="intro" aria-labelledby="intro-title">
+  <div class="intro-copy">
+    <div class="intro-tag"><span aria-hidden="true">✦</span> Personal Google Drive integration</div>
+    <h1 id="intro-title">Your backup.<br><span>On your terms.</span></h1>
+    <p class="intro-lead">RCLONE is a private, owner-operated connection for transferring selected files from Linux workstations and servers to Google Drive using the open-source rclone utility.</p>
+    <p class="intro-lead">This website explains the integration and its data practices. It does not request Google credentials or initiate file transfers.</p>
+    <div class="intro-points"><span>✓ Owner-operated</span><span>✓ Explicit file transfers</span><span>✓ Privacy information available</span></div>
+    <p class="intro-caption">Learn more in the <a href="./privacy.html">privacy policy</a> and <a href="./terms.html">terms</a>.</p>
+  </div>
+  <div class="intro-dangle">
+    <span class="intro-tag">A SMALL INTERACTIVE DETAIL</span>
+    <span class="hanger" aria-hidden="true"></span>
+    <button id="revealBell" class="reveal-bell" type="button" aria-label="Ring the big bell to reveal a surprise"><span class="bell-emoji" aria-hidden="true">🔔</span></button>
+    <h2>There's something behind the bell.</h2>
+    <p>Go on. Give it a ring. A little surprise is waiting on the other side.</p>
+    <p class="little-note">Interactive easter egg • No sign-in required</p>
+  </div>
+</section>
+<main id="main" hidden>
 <section class="hero"><div><div class="kicker"><span class="led"></span>APPLICATION #000001 · STILL ALIVE</div><div class="stamp">APPROVAL PENDING SINCE THE BIG BANG (PARODY)</div><h1>Dear Google,<br><em>it's one</em><br><strong>bloody folder.</strong></h1><p class="lead">I wanted to back up my Linux files. Somehow I now have an OAuth app, a privacy policy, an audience strategy, and a website. <strong>Welcome to the RCLONE Bureau of Unnecessary Paperwork.</strong></p><div class="actions"><button id="ring" class="btn btn-primary" type="button">🔔 RING FOR APPROVAL ↗</button><button id="calm" class="btn btn-secondary" aria-pressed="false" type="button">Make the bells behave</button></div><p id="reaction" role="status" aria-live="polite">Status: Awaiting one (1) normal file transfer.</p><p class="fine">Fan-made parody. Not affiliated with Google or endorsed by Sundar Pichai. His portrait appears under a Creative Commons license, credited below.</p></div>
 <aside class="certificate"><div class="sub">GOOGLE CLOUD CONSOLE</div><div class="giant" aria-hidden="true">🔔</div><h2>HOW MANY MORE FIELDS?</h2><p>A simple backup has entered the enterprise compliance cinematic universe.</p><div class="meter"><div></div></div><div class="meterlabel"><span>Paperwork completed</span><b id="counter">0 / ∞</b></div><div class="certfoot">✓ USER IS HUMAN<br>✳ BUT DOES USER HAVE A WEBSITE?</div></aside></section>
 <section class="about" id="purpose"><div class="about-inner"><div class="section-heading"><div class="kicker">ACTUAL APPLICATION PURPOSE · NO JOKES FOR TEN SECONDS</div><h2>What this app really does.</h2><p>This is a personal, owner-operated Google Drive OAuth connection for <a href="https://rclone.org/" rel="noopener noreferrer">rclone</a>, a file-transfer utility. It is not a public SaaS product or login service.</p></div>
@@ -47,6 +108,62 @@ footer{background:#080614;padding:41px 5vw 28px;border-top:1px solid #bd99e844}.
 </main>
 <footer><div class="footer-inner"><div><a class="logo" href="./index.html">🔔 RCLONE</a><p>“Please submit your website.” — We actually did.</p><p>Independent personal parody, not affiliated with Google, Alphabet, Sundar Pichai or the rclone project.</p></div><div class="footlinks"><a href="./privacy.html">Privacy policy</a><a href="./terms.html">Terms of service</a><a href="https://commons.wikimedia.org/wiki/File:Sundar_Pichai_(2023).jpg" rel="noopener noreferrer">Portrait: Lukasz Kobus / European Union, CC BY 4.0 (cropped and tinted)</a><a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener noreferrer">Photo license</a></div></div><div class="footer-note">Parody website only · No advertising, sign-in form or analytics code · Hosting and third-party image providers may receive standard connection data.</div></footer>
 <script>
-(()=>{const msgs=['Bell rung. Google requires an application homepage for this bell.','Approval pending. Please verify ownership of your own existence.','ERROR 418: Your folder must submit a privacy policy.','Please select an audience for your breakfast.','Congratulations! Advanced Configuration unlocked: 47 more questions.','Sundar has been informed. He has requested a TXT record.','Under review by the Council of Bell Compliance.','Your OAuth token has applied for annual leave.','You clicked a button. Please create a Cloud billing account.','Your backup has been promoted to Enterprise Architecture.'];let count=0;const bell=document.querySelector('.giant');document.querySelector('#ring').addEventListener('click',()=>{count++;document.querySelector('#reaction').textContent='APPLICATION UPDATE '+String(count).padStart(3,'0')+': '+msgs[(count-1)%msgs.length];document.querySelector('#counter').textContent=count+' / ∞';bell.classList.remove('pop');void bell.offsetWidth;bell.classList.add('pop')});document.querySelector('#calm').addEventListener('click',e=>{const quiet=document.body.classList.toggle('calm');e.currentTarget.textContent=quiet?'Let the bells loose':'Make the bells behave';e.currentTarget.setAttribute('aria-pressed',String(quiet))})})();
+(()=>{
+  "use strict";
+  const msgs=[
+    'Bell rung. Google requires an application homepage for this bell.',
+    'Approval pending. Please verify ownership of your own existence.',
+    'ERROR 418: Your folder must submit a privacy policy.',
+    'Please select an audience for your breakfast.',
+    'Congratulations! Advanced Configuration unlocked: 47 more questions.',
+    'Sundar has been informed. He has requested a TXT record.',
+    'Under review by the Council of Bell Compliance.',
+    'Your OAuth token has applied for annual leave.',
+    'You clicked a button. Please create a Cloud billing account.',
+    'Your backup has been promoted to Enterprise Architecture.'
+  ];
+  let count=0;
+  const heroBell=document.querySelector('.giant');
+  const intro=document.getElementById('intro');
+  const revealBell=document.getElementById('revealBell');
+  const main=document.getElementById('main');
+  const reaction=document.getElementById('reaction');
+  const counter=document.getElementById('counter');
+  const ring=document.getElementById('ring');
+  const calm=document.getElementById('calm');
+  function updateMessage(){
+    count+=1;
+    reaction.textContent='APPLICATION UPDATE '+String(count).padStart(3,'0')+': '+msgs[(count-1)%msgs.length];
+    counter.textContent=count+' / ∞';
+    heroBell.classList.remove('pop');
+    void heroBell.offsetWidth;
+    heroBell.classList.add('pop');
+  }
+  function reveal(){
+    intro.hidden=true;
+    main.hidden=false;
+    document.body.classList.add('revealed');
+    const overview=document.querySelector('nav a[aria-current="page"]');
+    if(overview) overview.textContent='The Circus';
+    reaction.textContent='BREAKING: The bell has been rung. Please establish a corporate website for your folder.';
+    counter.textContent='1 / ∞';
+    window.scrollTo({top:0,behavior:'instant'});
+    ring.focus({preventScroll:true});
+  }
+  revealBell.addEventListener('click',()=>{
+    if(revealBell.disabled) return;
+    revealBell.disabled=true;
+    const reducedMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reducedMotion){reveal();return}
+    intro.classList.add('is-ringing');
+    window.setTimeout(reveal,760);
+  });
+  ring.addEventListener('click',updateMessage);
+  calm.addEventListener('click',e=>{
+    const quiet=document.body.classList.toggle('calm');
+    e.currentTarget.textContent=quiet?'Let the bells loose':'Make the bells behave';
+    e.currentTarget.setAttribute('aria-pressed',String(quiet));
+  });
+})();
 </script>
 </body></html>
